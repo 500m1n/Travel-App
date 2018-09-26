@@ -1,28 +1,30 @@
 var destination = ["MGM", "JNU", "PHX", "LIT", "SMF", "DEN", "BDL", "TLH", "ATL", "HNL", "BOI",
     "SPI", "IND", "DSM", "FOE", "SDF", "BTR", "AUG", "BWI", "BOS",
-    "LAN", "MSP", "JAN", "MCI", "MSO", "LNK", "CSN", "CON", "SAF", "ALB",
+    "LAN", "MSP", "JAN", "MCI", "MSO", "LNK", "CON", "SAF", "ALB",
     "RDU", "MOT", "CMH", "OKC", "PDX", "PVD", "CAE",
-    "PIR", "BNA", "AUS", "SLC", "BTV", "RIC", "SEA", "CRW", "ATW", "CPR"]
+    "PIR", "BNA", "AUS", "SLC", "BTV", "RIC", "SEA", "CRW", "ATW", "CPR", "RNO"]
 
 var rand = destination[Math.floor(Math.random() * destination.length)];
 console.log(rand);
 
 // On Search Click Function
 $("#search").on('click', function () {
-
+    
     event.preventDefault()
-
-
 
     //Variables
     var hotelLocation = rand;
     var checkIn = $("#startDate").val();
     var checkOut = $("#endDate").val();
     var hotelMax = $("#hotelValue").val();
-    var hotelLimit = "200";
+    var limit = "300";
     var totalprice = "";
-    var startDate = $("#startDate").val();        //moment().format("YYYY-MM-DD");
-    var endDate = $("#endDate").val();;
+    
+    if (hotelMax < limit) {
+        alert("Hotel: Please enter a value greater than 200");
+
+        return;
+    }
 
 
 
@@ -31,8 +33,8 @@ $("#search").on('click', function () {
         'apikey': "EmDOcfSCAlzNC04MzGctWtQbvZ9CdI0T",
         'origin': "EWR",
         'destination': rand,
-        'departure_date': startDate,
-        'return_date': endDate,
+        'departure_date': checkIn,
+        'return_date': checkOut,
         'number_of_results': 1
     });
 
@@ -43,16 +45,38 @@ $("#search").on('click', function () {
         'location': hotelLocation,
         'check_in': checkIn,
         'check_out': checkOut,
+        'radius': "50",
         'number_of_results': 1
     });
+console.log(urls)
 
 
-    if (hotelMax < hotelLimit) {
-        alert("Hotel: Please enter a value greater than 200");
 
-        return;
-    }
+    $.ajax({
+        url: urls,
+        method: "GET"
 
+    }).then(function (response) {
+        $("#hotelName td").remove();
+        $("#hotelAdd td").remove();
+        $("#price td").remove();
+        
+
+        for (var i = 0; i < response.results.length; i++) {
+            var propertyName = response.results[i].property_name;
+            var addressStreet = response.results[i].address.line1;
+            var postalCode = response.results[i].address.postal_code;
+            var totalPrice = response.results[i].total_price.amount;
+            
+            console.log(totalPrice);
+            
+            $("#hotelName").append("<td>" + propertyName + "</td>");
+            $("#hotelAdd").append("<td>" + addressStreet + " " + postalCode + "</td>");
+            $("#price").append("<td>" + totalPrice + "</td>");
+            console.log(urls);
+        }
+    });
+    
     $.ajax({
         url: url,
         method: "GET"
@@ -89,47 +113,15 @@ $("#search").on('click', function () {
 
             }
 
-
-
-
             $("#duration").append("<td>" + outDur + "</td>" + "<td>" + inDur + "</td>");
             $("#depart").append("<td>" + outDepart + "</td>" + "<td>" + inDepart + "</td>");
             $("#returnFlight").append("<td>" + outArrive + "</td>" + "<td>" + inArrive + "</td>");
             $("#seats").append("<td>" + outSeat + "</td>" + "<td>" + inSeat + "</td>");
             $("#flightPrice").append("<td>" + price + "</td>");
 
-
-
-
         }
 
-
-
-
-    });
-
-
-
-    $.ajax({
-        url: urls,
-        method: "GET"
-    }).then(function (response) {
-        $("#hotelName td").remove();
-        $("#hotelAdd td").remove();
-        $("#price td").remove();
-        
-
-        for (var i = 0; i < response.results.length; i++) {
-            var propertyName = response.results[i].property_name;
-            var addressStreet = response.results[i].address.line1;
-            var postalCode = response.results[i].address.postal_code;
-            var totalPrice = response.results[i].total_price.amount;
-            
-
-            $("#hotelName").append("<td>" + propertyName + "</td>");
-            $("#hotelAdd").append("<td>" + addressStreet + " " + postalCode + "</td>");
-            $("#price").append("<td>" + totalPrice + "</td>");
-
-        }
     });
 });
+
+
