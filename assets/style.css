@@ -1,0 +1,116 @@
+.signIn {
+    background: url(image/travel.jpeg);
+}
+
+.title {
+    font-family: 'Aldrich'; 
+    font-size: 100px;
+    color: white;
+    margin-left: 18%;
+    font-weight: bold;
+    padding-top: 120px;
+}
+
+#logBtn {
+    width:250px;
+    height: 50px;
+    margin-left: 40%;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+#registerBtn {
+    width: 250px;
+    height: 50px;
+    margin-left: 40%;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+#username {
+    margin-left: 40%;
+    width: 250px;
+    margin-top: 50px;
+    height: 53px;
+}
+
+#map {
+    height: 300px;
+}
+
+.dropdown-toggle {
+    width: 250px;
+}
+
+#flight {
+    width: 200px;
+}
+
+#result {
+    margin-top: 50px;
+}
+
+#fly {
+    width: 50px;
+    height: 50px;
+}
+
+#house {
+    width: 50px;
+    height: 50px;
+}
+
+.ready {
+    margin-top: 50px;
+    color: navy;
+    font-size: 72px;
+    text-align: center;
+}
+
+.where {
+    margin-top: 20px;
+    color: rgb(83, 83, 83);
+}
+
+.quantity {
+    margin-top: 30px;
+    color: rgb(83,83,83);
+}
+
+.budget {
+    margin-top: 20px;
+    color:rgb(83,83,83);
+}
+
+#search {
+    width: 200px;
+}
+
+#gmap {
+    font-size: 20px;
+}
+
+.removePad {
+    padding: 0 !important;
+}
+ 
+.col, .container {
+    padding: 0 !important;
+}
+
+.marginFix {
+    margin-left: -13px !important;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    height: 30px;
+}
+
+#colorfix {
+    color: white !important;
+}

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- jQuery  Ajax -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+
+    <title>Budget Travel</title>
+
+    <!--Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-primary bg-light">
+        <a class="navbar-brand" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="ready">Ready for next adventure?</h1>
+
+
+        <form class="form-inline marginFix">
+
+            <div class="col col-sm-2 removePad">Start Date&nbsp;<input class="form-control" id="startDate" type="date" /></div>
+
+            <div class="col col-sm-2 removePad">End Date&nbsp;<input class="form-control" id="endDate" type="date" /></div>
+
+        </form>
+
+        <div class="row">
+            <h2 class="budget">What's your maximum budget?</h2>
+        </div>
+        <br>
+        <div class="row">
+
+
+            <div class="col=lg-6">
+                <label for="Money"><strong>Flight</strong></label>
+                <input type="text" class="form-control" placeholder="$...">
+            </div>
+        </div>
+
+        <br><br>
+        <div class="row">
+            <div class="col=lg-6">
+                <label for="Money"><strong>Hotels</strong></label>
+                <input type="text" class="form-control" placeholder="$...">
+            </div>
+
+        </div>
+
+
+        <br>
+        <div class="row">
+            <button type="button" class="btn btn-primary" id="search"><a id="colorfix"> <strong>Search</strong></a></button>
+        </div>
+
+        <br><br>
+
+    </div>
+
+    <div class="container">
+        <div class="card" id="result">
+            <div class="card-body">
+                <h2 class="destination">Destination</h2>
+                <p id="Place"></p>
+                <br>
+                <div class="row">
+                    <img src="assets/image/flight.png" id="fly">
+                    <p id="flightResult">&nbsp;&nbsp;&nbsp;Flights:</p>
+                </div>
+
+                <table class="table table-striped" id="flightTable">
+                    <thead>
+                        <tr>
+                            <th scope="col-md-4"></th>
+                            <th scope="col-md-4">Departure Flight</th>
+                            <th scope="col-md-4">Return Flight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="duration">
+                            <th scope="row">Duration</th>
+                        </tr>
+                        <tr id="depart">
+                            <th scope="row">Departure time</th>
+                        </tr>
+                        <tr id="returnFlight">
+                            <th scope="row">Arrival time</th>
+                        </tr>
+                        <tr id="seats">
+                            <th scope="row">Seats remaining</th>
+                        </tr>
+                        <tr id="flightPrice">
+                            <th scope="row">Price</th>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <br>
+                <div class="row">
+                    <img src="assets/image/housing.png" id="house">
+                    <p id="housingResult">&nbsp;&nbsp;&nbsp;Housing:</p>
+                </div>
+                <table class="table table-striped" id="flightTable">
+                    
+                    <tbody>
+                        <tr id="hotelName">
+                    
+                            <th scope="row">Hotel Name</th>
+                        </tr>
+                        <tr id="hotelAdd">
+                            <th scope="row">Address</th>
+                        </tr>
+                        <tr id="price">
+                            <th scope="row">Price</th>
+                        </tr>
+                    
+
+                    </tbody>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+    </div>
+
+
+    <!--Javascript-->
+    <script type="text/javascript" src="assets/script.js"></script>
+    
+    <script type="text/javascript" src="assets/storage.js"></script>
+
+</body>
+
+</html>
